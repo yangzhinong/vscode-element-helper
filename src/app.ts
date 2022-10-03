@@ -104,15 +104,44 @@ export class App {
       config.update("quickSuggestions", { "strings": true }, true);
     }
   }
+  
 
   openHtml(uri: Uri, title) {
-    const success = HTML_CONTENT(decodeDocsUri(uri));
+    const fileUrl = HTML_CONTENT(decodeDocsUri(uri)); //file://c:/yzn/....这种格式的地地
     const open = require('open');
-    open(success, {
+    open(fileUrl, {
       app: {
         name: open.apps.chrome
       }
     });
+
+    // const fs = require('fs');
+    // fs.readFile(success, 'utf8', function (err,data) {
+    //   if (err) {
+    //     return console.log(err);
+    //   }
+    //   console.log(data);
+    // });
+
+    // const html=`<!DOCTYPE html>
+    // <html lang="en">
+    // <head>
+    //   <meta charset="UTF-8">
+    //   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    //   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    //   <title>${title}</title>
+    // </head>
+    // <body>
+    // <iframe id="docs-frame" src="https://www.baidu.com" style="width:100%; min-height:800px"></iframe>
+
+    // </body>
+    // </html>`
+
+    // const web= window.createWebviewPanel('elementHelper',title,ViewColumn.Two,{});
+    // console.log(html)
+    // web.webview.html= html;
+
+    
     //console.log(success);
     //opn(success,{});
     // return commands.executeCommand('vscode.previewHtml', uri, ViewColumn.Two, title)

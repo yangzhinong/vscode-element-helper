@@ -2,7 +2,7 @@
   "name": "vscode-element-helper",
   "displayName": "vscode-element-helper",
   "description": "A vscode extension for Element-UI",
-  "version": "0.5.7",
+  "version": "0.5.9",
   "publisher": "yzn",
   "repository": {
     "type": "git",
@@ -60,7 +60,7 @@
         },
         "element-helper.version": {
           "type": "string",
-          "default": "2.4",
+          "default": "2.15",
           "description": "Document version of Element UI",
           "enum": [
             "1.4",
@@ -69,7 +69,17 @@
             "2.2",
             "2.3",
             "2.4",
-            "2.5"
+            "2.5",
+            "2.6",
+            "2.7",
+            "2.8",
+            "2.9",
+            "2.10",
+            "2.11",
+            "2.12",
+            "2.13",
+            "2.14",
+            "2.15"
           ]
         },
         "element-helper.indent-size": {
