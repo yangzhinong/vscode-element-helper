@@ -2,14 +2,14 @@
   "name": "vscode-element-helper",
   "displayName": "vscode-element-helper",
   "description": "A vscode extension for Element-UI",
-  "version": "0.5.6",
-  "publisher": "ElemeFE",
+  "version": "0.5.7",
+  "publisher": "yzn",
   "repository": {
     "type": "git",
     "url": "https://github.com/ElemeFE/vscode-element-helper"
   },
   "engines": {
-    "vscode": "^1.12.0"
+    "vscode": "^1.47.0"
   },
   "categories": [
     "Snippets",
@@ -101,22 +101,22 @@
   "scripts": {
     "vscode:prepublish": "tsc -p ./",
     "compile": "tsc -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install",
     "test": "node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.32",
-    "@types/node": "^6.0.40",
+    "@types/node": "^16.11.7",
     "mocha": "^5.2.0",
-    "typescript": "^2.0.3",
-    "vscode": "^1.1.28"
+    "typescript": "^4.8.4",
+    "@types/vscode": "^1.47.0"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.1",
     "element-gh-pages": "^1.0.26",
     "element-helper-json-new": "^2.0.6",
-    "hoek": "^5.0.3",
+    "hoek": "^6.1.3",
     "jquery": "^3.2.1",
+    "open": "^8.4.0",
     "pretty": "^2.0.0",
     "shelljs": "^0.7.8"
   }

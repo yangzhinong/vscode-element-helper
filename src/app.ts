@@ -12,6 +12,7 @@ import * as kebabCaseATTRS from 'element-helper-json-new/element-attributes.json
 const prettyHTML = require('pretty');
 const Path = require('path');
 const fs = require('fs');
+//const opn = require('opn');
 
 let TAGS = {};
 for (const key in kebabCaseTAGS) {
@@ -105,11 +106,20 @@ export class App {
   }
 
   openHtml(uri: Uri, title) {
-    return commands.executeCommand('vscode.previewHtml', uri, ViewColumn.Two, title)
-      .then((success) => {
-      }, (reason) => {
-          window.showErrorMessage(reason);
-      });
+    const success = HTML_CONTENT(decodeDocsUri(uri));
+    const open = require('open');
+    open(success, {
+      app: {
+        name: open.apps.chrome
+      }
+    });
+    //console.log(success);
+    //opn(success,{});
+    // return commands.executeCommand('vscode.previewHtml', uri, ViewColumn.Two, title)
+    //   .then((success) => {
+    //   }, (reason) => {
+    //       window.showErrorMessage(reason);
+    //   });
   }
 
   openDocs(query?: Query, title = 'Element-helper', editor = window.activeTextEditor){
@@ -155,6 +165,7 @@ const HTML_CONTENT = (query: Query) => {
   const componentPath = `${versionText}main.html#/${language}/component/${path}`;
   const href = Resource.ELEMENT_HOME_URL + componentPath.replace('main.html', 'index.html');
   const iframeSrc = 'file://' + Path.join(Resource.ELEMENT_PATH, componentPath).split(Path.sep).join('/');
+  return iframeSrc;
 
   const notice = ({
     'zh-CN': `版本：${html}，在线示例请在浏览器中<a href="${href}">查看</a>`,
